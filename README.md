@@ -1,14 +1,16 @@
 # Laboratorio 2 Convolución y correlación
 ## Descripción
-En este documento se busca reconocer los terminos de convolución y correlación, asi mismo saber en que momento se puede aplicar estas herramientas y en que señales o sistemas usarlas. También se define la transformada de Fourier y su importancia en el analisis del dominio a la frecuencia.
+En este documento se busca reconocer los terminos de convolución y correlación, asi mismo saber en que momento se puede aplicar estas herramientas y en que señales o sistemas usarlas. También se define la transformada de Fourier y su importancia en el analisis del dominio del tiempo al de frecuencia.
 ## Convolución
-La convolución es una herramienta matemática que describe el proceso de "deslizar" una función sobre otra. En términos más específicos, se refiere a multiplicar los valores de una función por los valores de la otra función en los puntos de superposición y luego sumar esos productos para generar una nueva función.
+La convolución es una herramienta matemática que describe el proceso de "deslizar" una función sobre otra. En términos más específicos, se refiere a multiplicar los valores de una función por los valores de la otra en los puntos de superposición y luego sumar esos productos para generar una nueva función.
 
-(***No sé si poner la formula de la convolución formalmente***)
+$y[n] = x[n] * h[n] = \sum_{k=-\infty}^{\infty} x[k] h[n-k]$
 
 En el contexto del procesamiento digital de señales, la convolución se emplea para estudiar y diseñar sistemas LTI (Lineales y de Tiempo Invariante), como los filtros digitales. La salida de un sistema LTI, denotada como $y[n]$, se obtiene mediante la convolución de la señal de entrada $x[n]$ con la respuesta al impulso $h[n]$, de acuerdo con la siguiente ecuación:
 
 $y[n]= x[n]*h[n]$
+
+Para poder hacer una convolución en pyhton se pueden seguir los siguientes pasos:
 
 ### Librerias
 ```python

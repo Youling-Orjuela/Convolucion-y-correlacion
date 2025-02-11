@@ -237,7 +237,7 @@ plt.grid(True, linestyle='--', alpha=0.7)
 plt.xlim(0, 500)
 plt.show()
 ````
-[Histograma-frecuencia.jpg](https://postimg.cc/ThnG1zJj)
+[![Histograma-frecuencia.jpg](https://i.postimg.cc/HWhLZHJN/Histograma-frecuencia.jpg)](https://postimg.cc/ThnG1zJj)
 
 ### Análisis estadísticos descriptivos
 ### Bibliografía

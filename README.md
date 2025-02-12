@@ -21,7 +21,10 @@ import seaborn as sns
 from scipy.fftpack import fft
 from scipy.signal import welch
 ```
-### Señal de entrada y de salida (explicar np.convolve)
+### Señal de entrada y de salida 
+
+La función de NumPy np.convolve es usada para calcular la convolución discreta entre dos secuencias.
+
 ```python
 codigo_Youling=np.array([5,6,0,0,8,1,5])
 codigo_Jose=np.array([5,6,0,0,7,9,3])
@@ -50,6 +53,10 @@ plt.show()
 [![Convoluci-n-Youling.jpg](https://i.postimg.cc/zB6h5Ncx/Convoluci-n-Youling.jpg)](https://postimg.cc/TLj1qzGb)
 [![Convoluci-n-Jos.jpg](https://i.postimg.cc/FHNLhDTX/Convoluci-n-Jos.jpg)](https://postimg.cc/ZCsRcFkw)
 [![Convoluci-n-Camilo.jpg](https://i.postimg.cc/SKt27qkm/Convoluci-n-Camilo.jpg)](https://postimg.cc/cKwL0pvz)
+
+### Secuencial
+[![Secuencial-1.jpg](https://i.postimg.cc/8cfnL63B/Secuencial-1.jpg)](https://postimg.cc/gLdDWnGn)
+[![secuencial-2.jpg](https://i.postimg.cc/7PpqdMx4/secuencial-2.jpg)](https://postimg.cc/t7N0V6Zv)
 
 
 ## Correlación
@@ -125,7 +132,7 @@ plt.grid()
 plt.tight_layout()
 plt.show()
 ````
-[![Correlaci-n.jpg](https://i.postimg.cc/DZR8bgF6/Correlaci-n.jpg)](https://postimg.cc/VrBYxXJ0)
+[![correlacion-cruzada.jpg](https://i.postimg.cc/V6JcH5p5/correlacion-cruzada.jpg)](https://postimg.cc/gXb5xcYP)
 
 
 ## Electromiografía

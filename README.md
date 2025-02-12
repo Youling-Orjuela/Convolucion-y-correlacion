@@ -206,7 +206,7 @@ plt.show()
 
 [![Histograma.jpg](https://i.postimg.cc/DwyJH5vj/Histograma.jpg)](https://postimg.cc/svqgZYZ7)
 
-Este histograma tiene una clasificación sesgada a la derecha, como se puede ver la mayoría de datos estan agrupados en la parte izquierda y dejando ver un alargamiento hacía la derecha.
+Este histograma tiene una clasificación de distribución normal. 
 
 ### Transformada de Fourier
 #### Análisis espectral y graficar la transformada de Fourier
@@ -265,7 +265,7 @@ plt.show()
 ````
 [![Histograma-frecuencia.jpg](https://i.postimg.cc/HWhLZHJN/Histograma-frecuencia.jpg)](https://postimg.cc/ThnG1zJj)
 
-La clasificación en este caso también es sesgada a la derecha, la mayoria de datos estan agrupados en la parte izquierda  y hay un alargamiento en la derecha.
+La clasificación en este caso es sesgada a la derecha,  es decir que esta sesgada positivamente, la mayoria de datos estan agrupados en la parte izquierda  y hay un alargamiento en la derecha.
 
 ### Análisis estadísticos descriptivos
 

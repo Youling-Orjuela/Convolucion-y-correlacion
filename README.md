@@ -10,6 +10,13 @@ En el contexto del procesamiento digital de señales, la convolución se emplea 
 
 $y[n]= x[n]*h[n]$
 
+### Convolución a mano
+[![conv-you.jpg](https://i.postimg.cc/bYt5NdD0/conv-you.jpg)](https://postimg.cc/14yBvmK4)
+[![con-you.jpg](https://i.postimg.cc/V6T2ZCSv/con-you.jpg)](https://postimg.cc/KkP9R4Dh)
+[![conv-jose.jpg](https://i.postimg.cc/HsbF3jTW/conv-jose.jpg)](https://postimg.cc/8jPyzpFx)
+[![con-jose.jpg](https://i.postimg.cc/KzXzXR3q/con-jose.jpg)](https://postimg.cc/FfZm3FZ3)
+[![conv-cam.jpg](https://i.postimg.cc/mgxCL5sg/conv-cam.jpg)](https://postimg.cc/4m5mwwyD)
+
 Para poder hacer una convolución en pyhton se pueden seguir los siguientes pasos:
 
 ### Librerias

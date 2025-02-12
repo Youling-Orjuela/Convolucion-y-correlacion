@@ -14,12 +14,14 @@ Para poder hacer una convolución en pyhton se pueden seguir los siguientes paso
 
 ### Librerias
 ```python
+import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 import wfdb
 import seaborn as sns
 from scipy.fftpack import fft
 from scipy.signal import welch
+
 ```
 ### Señal de entrada y de salida 
 
@@ -201,7 +203,10 @@ plt.ylabel('Frecuencia')
 plt.grid(True, linestyle='--', alpha=0.7)
 plt.show()
 ````
+
 [![Histograma.jpg](https://i.postimg.cc/DwyJH5vj/Histograma.jpg)](https://postimg.cc/svqgZYZ7)
+
+Este histograma tiene una clasificación sesgada a la derecha, como se puede ver la mayoría de datos estan agrupados en la parte izquierda y dejando ver un alargamiento hacía la derecha.
 
 ### Transformada de Fourier
 #### Análisis espectral y graficar la transformada de Fourier
@@ -260,6 +265,8 @@ plt.show()
 ````
 [![Histograma-frecuencia.jpg](https://i.postimg.cc/HWhLZHJN/Histograma-frecuencia.jpg)](https://postimg.cc/ThnG1zJj)
 
+La clasificación en este caso también es sesgada a la derecha, la mayoria de datos estan agrupados en la parte izquierda  y hay un alargamiento en la derecha.
+
 ### Análisis estadísticos descriptivos
 
 Para caracterizar la señal electromiográfica (EMG) se hizo uso de las siguientes funciones para determinar los estadisticos correspondientes a la misma:
@@ -274,7 +281,7 @@ Por ultimo, la del coeficiente de variación, el cual es extraído producto de l
 
 Los estadísticos obtenidos nos proporcionan una idea del contenido espectral de esta señal electromiográfica.
 La frecuencia media, esta nos dio como valor 537.04 Hz, esto lo que nos dice es que la mayor parte de la señal se encuentra en el rango medio-alto del espectro, esto en este tipo de señales puede estar asociado a contracciones rápidas del músculo. La frecuencia Mediana, se obtuvo un valor de 301.53 Hz, esto nos dice que la mitad de la potencia espectral está por debajo de esta frecuencia, se puede ver claramente que la media es mayor que la mediana , lo que sugiere una distribución asimétrica de la energía en la señal, esto puede deberse a picos de alta frecuencia, lo cual es común en señales EMG. La Desiviación estándar, el valor de 566.43 Hz muestra que las frecuencias presentes en la señal están muy dispersas alrededor de la media, esto puede deberse a la complejidad de la actividad muscular registrada, ya que tiene una amplia variedad de frecuencias activas, o también puede deberse a interferencias externas.
-En el histograma se ven reflejadas la distribución de frecuencias en la señal, donde se evidencia una alta concentración de energía en las frecuencias bajas (0Hz y 50Hz), lo que resalta que la mayor parte de la actividad registrada esta dentro de este rango. A medida que la frecuencia va aumentando, la densidad va disminuyendo progresivamente, lo cual refleja una distribución sesgada hacia la izquierda. Esto concuerda con los datos analizados anteriormente, ya que la mitad de la energía se encuentra por debajo de la mediana, en cuento al valor de la media sugiere la presencia de ruido o artefactos de la señal, por las componentes de alta frecuencia, y la desviación respalda la presencia de un espectro amplio, característico de este tipo de señales.
+En el histograma se ven reflejadas la distribución de frecuencias en la señal, donde se evidencia una alta concentración de energía en las frecuencias bajas (0Hz y 50Hz), lo que resalta que la mayor parte de la actividad registrada esta dentro de este rango. A medida que la frecuencia va aumentando, la densidad va disminuyendo progresivamente, lo cual refleja una distribución sesgada hacia la derecha. Esto concuerda con los datos analizados anteriormente, ya que la mitad de la energía se encuentra por debajo de la mediana, en cuento al valor de la media sugiere la presencia de ruido o artefactos de la señal, por las componentes de alta frecuencia, y la desviación respalda la presencia de un espectro amplio, característico de este tipo de señales.
 
 ### Bibliografía
 (S/f). Mathworks.com. Recuperado el 11 de febrero de 2025, de https://la.mathworks.com/discovery/convolution.html

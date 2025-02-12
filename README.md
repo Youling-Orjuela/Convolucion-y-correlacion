@@ -69,42 +69,56 @@ SIguiendo el siguiente esquema se puede obtener la correlación de estas dos se�
 
 ### Definir la señal
 ````python
-# Parámetros
-fs = 1 / (1.25e-3)  # Frecuencia de muestreo
-f = 100  # Frecuencia de la señal
+# Definir parámetros
+N = 9  # Número de muestras
 Ts = 1.25e-3  # Período de muestreo
-n = np.arange(0, 9)  # Rango de n
-t = n * Ts  # Tiempo discreto
+f = 100  # Frecuencia en Hz
 
-# Definición de las señales
-x1 = np.cos(2 * np.pi * f * t)
-x2 = np.sin(2 * np.pi * f * t)
+# Definir el eje de muestras n
+n = np.arange(N)  # n = [0, 1, 2, ..., N-1]
 
-# Cálculo de la correlación cruzada
-correlacion = np.correlate(x1, x2, mode='full')
-lags = np.arange(-len(n) + 1, len(n))
+# Calcular las señales
+y_seno = np.sin(2 * np.pi * f * n * Ts)
+y_coseno = np.cos(2 * np.pi * f * n * Ts)
+
+# Calcular la correlación de Pearson
+correlation_coefficient, _ = pearsonr(y_seno, y_coseno)
+
+# Calcular la correlación cruzada
+correlacion_cruzada = np.correlate(y_seno, y_coseno, mode='full')
+lags = np.arange(-N + 1, N)
+
+# Crear tabla con pandas
+df = pd.DataFrame({'n': n, 'Seno': y_seno, 'Coseno': y_coseno})
+print("Tabla de valores:")
+print(df)
+
+# Mostrar la correlación de Pearson
+print(f"\nCorrelación de Pearson entre seno y coseno: {correlation_coefficient:.4f}")
+
 ````
 ### Graficar la señal y correlación cruzada
 ````python
+
 # Gráficos
-plt.figure(figsize=(12, 5))
+plt.figure(figsize=(10, 6))
 
 # Señales
 plt.subplot(2, 1, 1)
-plt.stem(n, x1, 'b', markerfmt='bo', label='$x_1[n] = \cos(2\pi100nT_s)$')
-plt.stem(n, x2, 'r', markerfmt='ro', label='$x_2[n] = \sin(2\pi100nT_s)$')
-plt.xlabel('n')
-plt.ylabel('Amplitud')
-plt.title('Señales $x_1[n]$ y $x_2[n]$')
+plt.stem(n, y_seno, 'b', markerfmt='bo', label='Seno')
+plt.stem(n, y_coseno, 'r', markerfmt='ro', label='Coseno')
+plt.xlabel("n (Muestras)")
+plt.ylabel("Amplitud")
+plt.title("Señales Discretas: Seno y Coseno")
 plt.legend()
 plt.grid()
 
 # Correlación cruzada
 plt.subplot(2, 1, 2)
-plt.stem(lags, correlacion, 'g', markerfmt='go', label='Correlación cruzada')
-plt.xlabel('Desplazamiento (k)')
-plt.ylabel('Amplitud')
-plt.title('Correlación cruzada entre $x_1[n]$ y $x_2[n]$')
+plt.stem(lags, correlacion_cruzada, 'g', markerfmt='go', label='Correlación Cruzada')
+plt.xlabel("Desplazamiento (k)")
+plt.ylabel("Amplitud")
+plt.title("Correlación Cruzada entre Seno y Coseno")
 plt.legend()
 plt.grid()
 
@@ -248,6 +262,12 @@ En primer lugar, la frecuencia de muestreo, se extrae por medio de la función r
 Por otro lado, el valor de desviación estándar; el cual tiene como resultado un valor de aproximadamente 0,08157 y cuyo número es extraido con la funcion np.std(senal), sugiere que la desviacion de los datos en la funcion no se encuentran muy dispersos respecto a la media de valores y que a nivel general, la actividad muscular es moderada. 
  
 Por ultimo, la del coeficiente de variación, el cual es extraído producto de la razón entre la desviación estándar y la media de la señal y que toma un valor cercano a 408,225, indica que pese a que la desviación es baja, la señal puede experimentar picos muy elevados de manera esporádica y durante toda la captura de la señal misma.
+
+### Análisis estadisticos descriptivos de la función frecuencia
+
+Los estadísticos obtenidos nos proporcionan una idea del contenido espectral de esta señal electromiográfica.
+La frecuencia media, esta nos dio como valor 537.04 Hz, esto lo que nos dice es que la mayor parte de la señal se encuentra en el rango medio-alto del espectro, esto en este tipo de señales puede estar asociado a contracciones rápidas del músculo. La frecuencia Mediana, se obtuvo un valor de 301.53 Hz, esto nos dice que la mitad de la potencia espectral está por debajo de esta frecuencia, se puede ver claramente que la media es mayor que la mediana , lo que sugiere una distribución asimétrica de la energía en la señal, esto puede deberse a picos de alta frecuencia, lo cual es común en señales EMG. La Desiviación estándar, el valor de 566.43 Hz muestra que las frecuencias presentes en la señal están muy dispersas alrededor de la media, esto puede deberse a la complejidad de la actividad muscular registrada, ya que tiene una amplia variedad de frecuencias activas, o también puede deberse a interferencias externas.
+En el histograma se ven reflejadas la distribución de frecuencias en la señal, donde se evidencia una alta concentración de energía en las frecuencias bajas (0Hz y 50Hz), lo que resalta que la mayor parte de la actividad registrada esta dentro de este rango. A medida que la frecuencia va aumentando, la densidad va disminuyendo progresivamente, lo cual refleja una distribución sesgada hacia la izquierda. Esto concuerda con los datos analizados anteriormente, ya que la mitad de la energía se encuentra por debajo de la mediana, en cuento al valor de la media sugiere la presencia de ruido o artefactos de la señal, por las componentes de alta frecuencia, y la desviación respalda la presencia de un espectro amplio, característico de este tipo de señales.
 
 ### Bibliografía
 (S/f). Mathworks.com. Recuperado el 11 de febrero de 2025, de https://la.mathworks.com/discovery/convolution.html

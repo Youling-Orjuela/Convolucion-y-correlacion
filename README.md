@@ -240,6 +240,15 @@ plt.show()
 [![Histograma-frecuencia.jpg](https://i.postimg.cc/HWhLZHJN/Histograma-frecuencia.jpg)](https://postimg.cc/ThnG1zJj)
 
 ### Análisis estadísticos descriptivos
+
+Para caracterizar la señal electromiográfica (EMG) se hizo uso de las siguientes funciones para determinar los estadisticos correspondientes a la misma:
+
+En primer lugar, la frecuencia de muestreo, se extrae por medio de la función record.fs, la cual nos indica que el muestreo se esta realizando a 4000 Hz. En cuanto a los estadísticos descriptivos, el valor de la media; el cual se extrae con la funcion np.mean(senal), da como resultado un valor, producto del análisis de los diferentes valores de amplitud que toma la señal en su captura, siendo 0,000199 el valor de voltaje medio de la señal. De este valor se puede analizar que su magnitud es muy cercana a cero gracias a que la señal tiene trazos positivos y negativos.
+
+Por otro lado, el valor de desviación estándar; el cual tiene como resultado un valor de aproximadamente 0,08157 y cuyo número es extraido con la funcion np.std(senal), sugiere que la desviacion de los datos en la funcion no se encuentran muy dispersos respecto a la media de valores y que a nivel general, la actividad muscular es moderada. 
+ 
+Por ultimo, la del coeficiente de variación, el cual es extraído producto de la razón entre la desviación estándar y la media de la señal y que toma un valor cercano a 408,225, indica que pese a que la desviación es baja, la señal puede experimentar picos muy elevados de manera esporádica y durante toda la captura de la señal misma.
+
 ### Bibliografía
 (S/f). Mathworks.com. Recuperado el 11 de febrero de 2025, de https://la.mathworks.com/discovery/convolution.html
 
